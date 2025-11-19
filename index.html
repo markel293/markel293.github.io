@@ -4,6 +4,61 @@
     <title>Sign-In Gugel</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <meta name="google-signin-client_id" content="444448632644-ccuqajt4h64cuumqq90bft10jrv3ehq4.apps.googleusercontent.com">
+    
+    <style>
+        /* Estil General i Centrat */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8fb; /* Gris-blau molt clar */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Estil per al Contenidor Principal */
+        .g_id_signin, #botó-sortir, #mensaje-bienvenida {
+            margin-top: 20px;
+        }
+
+        /* Estil per al Missatge de Benvinguda */
+        #mensaje-bienvenida {
+            color: #2c3e50; /* Blau fosc suau */
+            background-color: #e6f1f6; /* Blau cel molt clar */
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1.5em;
+            border: 1px solid #c8d9e3;
+        }
+
+        /* Estil per al Botó de Desconnexió */
+        #botó-sortir {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #e74c3c; /* Vermell suau per a 'Deskonete' */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        #botó-sortir:hover {
+            background-color: #c0392b; /* Vermell una mica més fosc al passar el ratolí */
+        }
+
+        /* Assegura't que el div g_id_onload no sigui visible */
+        #g_id_onload {
+            position: absolute;
+            top: -9999px; 
+            left: -9999px;
+        }
+    </style>
 </head>
 <body>
     <div id="g_id_onload"
@@ -26,16 +81,14 @@
             
             document.getElementById('botó-sortir').style.display = 'block';
             document.querySelector('.g_id_signin').style.display = 'none';
-            
-            // Actualitzat a 'mensaje-bienvenida'
+
             document.getElementById('mensaje-bienvenida').style.display = 'block';
         }    
         
         function signOut() {
             document.getElementById('botó-sortir').style.display = 'none';
             document.querySelector('.g_id_signin').style.display = 'block';
-            
-            // Actualitzat a 'mensaje-bienvenida'
+
             document.getElementById('mensaje-bienvenida').style.display = 'none';
             
             google.accounts.id.disableAutoSelect();
