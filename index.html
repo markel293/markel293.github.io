@@ -17,7 +17,9 @@
         Deskonete
     </button>
     <script>
-        function onSignIn() {
+        function onSignIn(response) {
+            var id_token = response.credential;
+            console.log("444448632644-ccuqajt4h64cuumqq90bft10jrv3ehq4.apps.googleusercontent.com" + id_token);
             document.getElementById('botó-sortir').style.display = 'block';
             document.querySelector('.g_id_signin').style.display = 'none';
         }    
